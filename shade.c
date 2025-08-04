@@ -264,7 +264,7 @@ uint32_t shade_pds_set(shade_header *header, uint32_t pds) {
 uint32_t shade_payload_size_set(shade_header *header, uint32_t payload_byte_size) {
 	if (payload_byte_size == 0)
 		return 0;
-	return shade_pds_set(header, payload_byte_size - 1);
+	return shade_pds_set(header, payload_byte_size - 1) + 1;
 }
 
 uint32_t shade_pcs_set(shade_header *header, uint32_t pcs) {
@@ -295,3 +295,4 @@ void shade_payload_shade_version_set(shade_header *header) {
 	// Update packet size to include 2 bytes of payload
 	shade_payload_size_set(header, 2);
 }
+
